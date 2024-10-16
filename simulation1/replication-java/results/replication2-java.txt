@@ -1,0 +1,15 @@
+Number of strategy initializations?
+Number of plays for each set of initial strategies?
+Input the contribution and demand payoff
+Payoff for shirking?
+Payoff for working?
+Payoff for toiling?
+Low demand?
+Med demand?
+High demand
+Note that equilibria may need to be made explicit in the program manually
+The proportion of runs ending in a LLHH equilibrium was 0.2252
+The proportion of runs ending in a LMHM equilibrium was 0.5246
+The proportion of runs ending in a LHHL equilibrium was 0.0
+The proportion of runs ending in a MLMH equilibrium was 0.0446
+The proportion of runs ending in a MMMM equilibrium was 0.0908

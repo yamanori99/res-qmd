@@ -1,0 +1,61 @@
+---
+title: "環境テスト"
+jupyter: venv_kernel
+---
+
+## Pythonを介したJava環境テストと実行
+
+```{python}
+#| label: python-java-test
+import subprocess
+import os
+
+def run_command(command):
+    result = subprocess.run(command, shell=True, capture_output=True, text=True)
+    print(f"Command: {command}")
+    print(f"Output:\n{result.stdout}")
+    if result.stderr:
+        print(f"Error:\n{result.stderr}")
+    return result.returncode == 0
+
+print("Java version:")
+run_command("java -version")
+
+print("\nJavac version:")
+run_command("javac -version")
+
+print("\nJava home:")
+print(os.environ.get('JAVA_HOME', 'Not set'))
+
+print("\nPATH:")
+print(os.environ.get('PATH', 'Not set'))
+
+print("\nLooking for Java source file:")
+java_file = subprocess.getoutput("find ../src -name 'Paper_code_link.java'")
+print(java_file)
+
+if java_file:
+    print("\nAttempting to compile:")
+    if run_command(f"javac {java_file}"):
+        print("\nCompilation successful. Attempting to run:")
+        run_command(f"java -cp {os.path.dirname(java_file)} {os.path.basename(java_file)[:-5]}")
+    else:
+        print("\nCompilation failed.")
+else:
+    print("\nJava source file not found.")
+```
+
+この更新されたコードでは：
+
+1. Pythonの`subprocess`モジュールを使用して、すべてのbashコマンドを実行します。
+2. Java環境の確認、ソースファイルの検索、コンパイル、実行のすべてのステップをPythonコード内で行います。
+3. 各コマンドの出力とエラー（もしあれば）を表示します。
+
+この方法を使用することで、Quartoがbashの出力を直接処理できない問題を回避し、必要な情報をすべて取得できるはずです。
+
+このテストを実行して、結果を確認してください。Java環境の情報が正しく表示され、ソースファイルが見つかってコンパイルと実行が成功するかどうかを確認できます。
+
+結果を共有していただければ、さらに詳細な分析と必要に応じて追加の解決策を提案できます。
+
+----------
+

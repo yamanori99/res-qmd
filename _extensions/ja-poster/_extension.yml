@@ -1,0 +1,59 @@
+title: Japanese Portrait Poster
+author: Yamamoto, Takanori
+version: 1.0.0
+quarto-required: ">=1.4.415"
+contributes:
+  formats:
+    typst:
+      template-partials:
+        - typst-template.typ
+        - typst-show.typ
+      paper: "a0"
+      flipped: false  # default: 縦向き
+      num-columns: 2
+      margin-top: 0
+      # タイトルフォント
+      title-font: "Hiragino Sans"  # Hiragino Sansはウェイト調整しやすい
+      title-font-size: 80
+      title-weight: 270
+      title-row-size: 5.1
+      title-column-size: 26.5
+      left-title-column-size: 0  # 0で中央揃え
+      # ヘッダーフォント
+      header-font: "Hiragino Sans"  # Hiragino Sansはウェイト調整しやすい
+      space-after-header: -10
+      authors-font-size: 40
+      authors-font-weight: 150
+      department-font-size: 38
+      department-font-weight: 150
+      # フッターフォント
+      footer-left-font: "Optima"
+      footer-center-font: "Optima"
+      footer-right-font: "Optima"
+      footer-left-font-size: 38
+      footer-center-font-size: 38
+      footer-right-font-size: 36
+      # ボディフォント
+      body-font-size: 28
+      english-font: "Helvetica Neue"
+      japanese-font: "Hiragino Kaku Gothic ProN"
+      scientific-font: "STIX Two Text"
+      #===============================================
+      # 引用処理
+      # Typstの引用処理は少し特殊, 以下を参照
+      # https://quarto.org/docs/authoring/citations.html#typst
+      # Typstでは引用文献にはbibliographyオプションを使用する
+      # 「引用文献」タイトルはqmdファイル内で見出しを設定すれば良い。
+      # > Typstのシステムを使用して書誌スタイルを指定するには、bibliographystyleオプションを使用する
+      # > Pandocの引用処理を使用する場合は、YAMLヘッダーにciteproc: trueを明示的に設定
+      citeproc: true
+      csl: "../../references/styles/apa.csl"
+      link-citations: true
+      popup-citations: true
+      
+
+
+      
+
+
+
