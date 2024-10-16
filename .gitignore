@@ -1,0 +1,40 @@
+# macOS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows files
+ehthumbs.db
+Thumbs.db
+
+# Quarto cache directory
+/.quarto/
+
+# Python virtual environment
+.project_venv/
+
+# Cache files (generic)
+*.cache
+*.log
+*.tmp
+*.bak
+.cache/
+
+# Ignore compiled files
+*.pyc
+*.o
+*.out
+*.class
+
+# Ignore temporary files or backups
+*~
+*.swp
+*.swo
+
+# Ignore specific tool caches (optional)
+node_modules/
+.idea/
+.vscode/
+.env/
