@@ -8,35 +8,57 @@ Quartoを使用した研究プロジェクト
 
 # 参考
 ## Quarto
+
 公式 Guide:
+
 https://quarto.org/docs/guide/
+
 公式 Project Basics:
+
 https://quarto.org/docs/projects/quarto-projects.html
+
 project manuscript for VS Code:
+
 https://quarto.org/docs/manuscripts/authoring/vscode.html
+
 公式 学術ライティング:
+
 https://quarto.org/docs/authoring/front-matter.html
+
 公式 相互参照;
+
 https://quarto.org/docs/authoring/cross-references.html#references
+
 公式 コードセル;
+
 https://quarto.org/docs/reference/cells/cells-knitr.html
 
 Typst カスタムフォーマット
+
 https://quarto.org/docs/output-formats/typst-custom.html
 
 Quarto使ってみませんか。
+
 https://speakerdeck.com/s_uryu/quarto-get-started
 
 Quarto for Scientists
+
 https://qmd4sci.njtierney.com/
+
 LaTeX 数式 一覧
+
 https://cns-guide.sfc.keio.ac.jp/2001/11/4/1.html
+
 TeX Wiki
+
 https://texwiki.texjp.org/
+
 LaTeX入門
+
 https://texwiki.texjp.org/?LaTeX%E5%85%A5%E9%96%80
 
 typst? LaTeXの代替組版アプリらしい
+
 http://www-het.phys.sci.osaka-u.ac.jp/~yamaguch/j/typst.html
 
 
