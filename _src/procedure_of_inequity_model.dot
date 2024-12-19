@@ -1,0 +1,115 @@
+digraph two_population_standard_replicator_dynamics {
+    // Basic settings
+    rankdir=TB;
+    node [fontname="Times New Roman", fontsize=28];
+    splines=ortho;
+    overlap=false;
+    
+    // Graph-wide settings
+    graph [
+        overlap=false,
+        splines=ortho,
+        concentrate=true,
+        sep="10,10",
+        nodesep=0.5,
+        ranksep=0.5
+    ];
+    
+    // Common edge settings
+    edge [
+        decorate=false,
+        labelangle=auto,
+        labeldistance=2,
+        fontsize=24
+    ];
+    
+    // Group A cluster
+    subgraph cluster_0 {
+        margin=8;
+        label="Group A";
+        style=rounded;
+        color=lightblue;
+        bgcolor="#F0F8FF";
+        fontsize=28;
+        
+        pop1 [shape=circle, 
+              label="Strategy Distribution\nx(t) = (x1(t),...,xm(t))\n(→ Converges to x*)",
+              style=filled,
+              width=4.5,
+              height=2.2,
+              fillcolor=white,
+              penwidth=2.0];
+              
+        dynamics1 [shape=hexagon,
+                  label="Replicator Dynamics\nxi(t+1) = xi(t) * (payoff_i^A(t))/(average expected payoff^A)",
+                  style=filled,
+                  width=4.5,
+                  height=2.4,
+                  fillcolor=white,
+                  penwidth=2.0];
+        dynamics1 -> pop1 [style=dashed, color=black, constraint=true, label="Next Step"];
+    }
+    
+    // Group B cluster
+    subgraph cluster_1 {
+        margin=8;
+        label="Group B";
+        style=rounded;
+        color=salmon;
+        bgcolor="#FFF0F0";
+        fontsize=28;
+        
+        pop2 [shape=circle,
+              label="Strategy Distribution\ny(t) = (y1(t),...,yn(t))\n(→ Converges to y*)",
+              style=filled,
+              width=4.5,
+              height=2.2,
+              fillcolor=white,
+              penwidth=2.0];
+              
+        dynamics2 [shape=hexagon,
+                  label="Replicator Dynamics\nyj(t+1) = yj(t) * (payoff_j^B(t))/(average expected payoff^B)",
+                  style=filled,
+                  width=4.5,
+                  height=2.4,
+                  fillcolor=white,
+                  penwidth=2.0];
+        dynamics2 -> pop2 [style=solid, color=black, constraint=true, label="Next Step"]
+    }
+
+    // Game interaction
+    subgraph cluster_game {
+        margin=8;
+        label="The Produce and Partition Game";
+        labelloc="b";
+        style=rounded;
+        color=gray;
+        bgcolor="#F0F0F0";
+        fontsize=28;
+        
+        pair1 [shape=diamond, 
+               label="Payoff Matrix\nA×B", 
+               style=filled,
+               width=2.5,
+               fillcolor=white,
+               penwidth=2.0];
+        
+        pair2 [shape=roundrectangle,
+               label="Expected Payoff\npayoff_i^A = sum(aij * yj)\npayoff_j^B = sum(xi * bij)",
+               style=filled,
+               width=4.5,
+               fillcolor=white,
+               penwidth=2.0];
+        
+        pair1 -> pair2 [label="Payoff"];
+    }
+    
+    // Flow arrows with orthogonal lines
+    edge [penwidth=1.5];
+    pop1 -> pair1 [label="x(t)"];
+    pop2 -> pair1 [label="y(t)"];
+    
+    // Fitness feedback with orthogonal lines
+    pair2 -> dynamics1;
+    pair2 -> dynamics2;
+}

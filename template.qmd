@@ -1,0 +1,33 @@
+---
+title: 
+subtitle: 
+author: 
+date:  last-modified
+format:
+  docx:
+    reference-doc: "_templates/template.docx"
+    toc: false
+    toc-title: "目次"
+    toc-depth: 2
+    number-sections: true
+    highlight-style: github
+cap-location: top
+bibliography: references.bib
+csl: apa.csl
+execute: 
+  freeze: auto
+---
+
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE,
+                      root.dir = getwd(),
+                      root.dir = here::here()
+                      )
+
+source("scripts/plot_game.R")
+source("scripts/plot_table.R")
+```
